@@ -73,7 +73,13 @@ def download():
         ydl_opts = {
             'format': format_str,
             'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(title)s.%(ext)s'),
-            'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['mweb', 'android']
+                }
+            },
+            'geo_bypass': True,
+            'nocheckcertificate': True,
             'merge_output_format': 'mp4',
         }
         
