@@ -45,7 +45,7 @@ def download():
             'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(title)s.%(ext)s'),
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info_dict = yd_opts and ydl.extract_info(video_url, download=True)
+            info_dict = ydl.extract_info(video_url, download=True)
             filename = ydl.prepare_filename(info_dict)
             
         return send_file(filename, as_attachment=True)
@@ -55,3 +55,4 @@ def download():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+    
